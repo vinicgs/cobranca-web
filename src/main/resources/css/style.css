@@ -1,0 +1,17 @@
+.container-fluid{
+    margin-top: 40px;
+    text-align: center;
+}
+.subTittle{
+    margin-top: 20px;
+}
+.Container-Card{
+    margin: 0px;
+}
+.space{
+    display: flex;
+    justify-content: center;
+}
+.card{
+    width: 350px;
+}
