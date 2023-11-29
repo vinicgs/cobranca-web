@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface DividaService {
     List<Divida> getAllDividas();
-    void save(Divida usuario);
+    void save(Divida divida);
     Divida getDividaById(long id);
     void deleteDividaById(long id);
 }

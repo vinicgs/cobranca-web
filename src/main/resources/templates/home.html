@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="ISO-8859-1"/>
+    <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de Cobranças</title>
-    <link rel="stylesheet" type="text/css" href="/home.css">
+    <title>Sistema de CobranÃ§as</title>
+    <link rel="stylesheet" href="/css/home.css"/>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -20,52 +20,44 @@
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Home</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alterna navegação">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-</nav>
 
-
-<div class="container-fluid">
-    <h1 class="title">Sistema de Cobranças</h1>
-    <h4 class="subTittle">Olá, este é um sistema de cobranças realizada por alunos do curso <br>de análise e desenvolvimento de sistemas</h4>
+<div class="container-fluid text-center">
+    <h1 class="title">Sistema de CobranÃ§as</h1>
+    <h4 class="subTitle">OlÃ¡, este Ã© um sistema de cobranÃ§as realizado por alunos do curso <br>de anÃ¡lise e desenvolvimento de sistemas</h4>
 </div>
 
-<div class="container-fluid">
-    <div class="space">
+<div class="container">
+    <div class="row justify-content-around">
 
-        <div class="Container-Card">
-            <div class="card" style="width: 18rem;">
+        <div class="col-md-4 mb-4">
+            <div class="card">
                 <img class="card-img-top" src="/Divida.jpg" alt="Imagem de capa do card">
                 <div class="card-body">
-                    <h5 class="card-title">Divida</h5>
-                    <p class="card-text">Aqui você pode cadastrar uma divida, <br>consultar, alterar e excluir.</p>
-                    <a th:href="@{/showNewDividaForm}" class="btn btn-primary">Acessar</a>
+                    <h5 class="card-title">DÃ­vida</h5>
+                    <p class="card-text">Aqui vocÃª pode cadastrar uma dÃ­vida, <br>consultar, alterar e excluir.</p>
+                    <a th:href="@{/dividas/listDivida}" class="btn btn-primary">Acessar</a>
                 </div>
             </div>
         </div>
 
-
-        <div class="Container-Card">
-            <div class="card" style="width: 18rem;">
+        <div class="col-md-4 mb-4">
+            <div class="card">
                 <img class="card-img-top" src="/Banco.jpg" alt="Imagem de capa do card">
                 <div class="card-body">
                     <h5 class="card-title">Pagamentos</h5>
-                    <p class="card-text">Aqui você pode cadastrar um pagamento, <br>consultar, alterar e excluir.</p>
-                    <a th:href="@{/showNewPagamentoForm}" class="btn btn-primary">Acessar</a>
+                    <p class="card-text">Aqui vocÃª pode cadastrar um pagamento, <br>consultar, alterar e excluir.</p>
+                    <a th:href="@{/pagamentos/listPagamento}" class="btn btn-primary">Acessar</a>
                 </div>
             </div>
         </div>
 
-        <div class="Container-Card">
-            <div class="card" style="width: 18rem;">
+        <div class="col-md-4 mb-4">
+            <div class="card">
                 <img class="card-img-top" src="/Cliente.jpg" alt="Imagem de capa do card">
                 <div class="card-body">
                     <h5 class="card-title">Cliente</h5>
-                    <p class="card-text">Aqui você pode cadastrar um Cliente, <br>consultar, alterar e excluir.</p>
-                    <a th:href="@{/showNewClienteForm}" class="btn btn-primary">Acessar</a>
+                    <p class="card-text">Aqui vocÃª pode cadastrar um cliente, <br>consultar, alterar e excluir.</p>
+                    <a th:href="@{/clientes/listCliente}" class="btn btn-primary">Acessar</a>
                 </div>
             </div>
         </div>

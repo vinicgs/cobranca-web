@@ -26,13 +26,13 @@ public class DividaServiceImpl implements DividaService{
 
     @Override
     public Divida getDividaById(long id) {
-        Optional<Divida> optional = dividaRepository.findById(id);
+        Optional<Divida> optional = dividaRepository.findById((int) id);
         Divida divida = null;
         if (optional.isPresent()){
             divida = optional.get();
         }
         else{
-            throw new RuntimeException("Usuario não encontrado");
+            throw new RuntimeException("Divida não encontrada");
         }
 
         return divida;
@@ -40,7 +40,7 @@ public class DividaServiceImpl implements DividaService{
 
     @Override
     public void deleteDividaById(long id) {
-        this.dividaRepository.deleteById(id);
+        this.dividaRepository.deleteById((int) id);
     }
 
 

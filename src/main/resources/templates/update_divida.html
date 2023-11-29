@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Employee System Management</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
+</head>
+<body>
+<div class="container">
+
+    <h1>Employee System Management</h1>
+    <hr/>
+    <h2>Update Divida</h2>
+
+    <form action="m" th:action="@{/dividas/saveDivida}" th:object="${divida}" method="POST">
+        <input type="hidden" th:field="*{id}"/>
+
+        <!-- Credor Dropdown -->
+        <div class="form-group">
+            <label for="credor">Credor:</label>
+            <select th:field="*{credor}" class="form-control mb-4 col-4">
+                <option th:each="cliente : ${clientes}" th:value="${cliente.nome}" th:text="${cliente.nome}"></option>
+            </select>
+        </div>
+
+        <!-- Código -->
+        <div class="form-group">
+            <label for="codigo">Código:</label>
+            <input type="number" th:field="*{codigo}" placeholder="Código" class="form-control mb-4 col-4"/>
+        </div>
+
+        <!-- Data Atualização -->
+        <div class="form-group">
+            <label for="dataAtualizacao">Data Atualização:</label>
+            <input type="text" th:field="*{dataAtualizacao}" placeholder="Data Atualização" class="form-control mb-4 col-4"/>
+        </div>
+
+        <!-- Devedor Dropdown -->
+        <div class="form-group">
+            <label for="devedor">Devedor:</label>
+            <select th:field="*{devedor}" class="form-control mb-4 col-4">
+                <option th:each="cliente : ${clientes}" th:value="${cliente.nome}" th:text="${cliente.nome}"></option>
+            </select>
+        </div>
+
+        <!-- Valor -->
+        <div class="form-group">
+            <label for="valor">Valor:</label>
+            <input type="text" th:field="*{valor}" placeholder="Valor" class="form-control mb-4 col-4"/>
+        </div>
+
+        <button type="submit" class="btn btn-info col-2">Update Divida</button>
+
+    </form>
+
+    <hr/>
+    <a th:href="@{/dividas/listDivida}"> Voltar </a>
+</div>
+</body>
+</html>

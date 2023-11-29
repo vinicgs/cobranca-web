@@ -11,4 +11,5 @@
 .space{
     display: flex;
     justify-content: center;
+    text-center: center;
 }
