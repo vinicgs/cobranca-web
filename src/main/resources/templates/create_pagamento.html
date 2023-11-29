@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Employee System Management</title>
+  <meta charset="ISO-8859-1"/>
+  <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
+</head>
+<body>
+<div class="container my-2">
+
+  <h1>Criar Dívida</h1>
+  <div class="container">
+    <form action="m" th:action="@{/pagamentos/savePagamentos}" th:object="${pagamento}" method="POST">
+
+      <!-- Credor Dropdown -->
+      <div class="form-group">
+        <label>Credor:</label>
+        <select th:field="*{credor}" class="form-control mb-4 col-4">
+          <option th:each="cliente : ${clientes}" th:value="${cliente.id}" th:text="${cliente.nome}"></option>
+        </select>
+      </div>
+
+      <!-- Data Atualizacao -->
+      <input type="number" th:field="*{codigo}" placeholder="codigo" class="form-control mb-4 col-4"/>
+      <input type="date" th:field="*{dataAtualizacao}" placeholder="data" class="form-control mb-4 col-4"/>
+
+      <!-- Devedor Dropdown -->
+      <div class="form-group">
+        <label>Devedor:</label>
+        <select th:field="*{devedor}" class="form-control mb-4 col-4">
+          <option th:each="cliente : ${clientes}" th:value="${cliente.id}" th:text="${cliente.nome}"></option>
+        </select>
+      </div>
+
+      <!-- Valor -->
+      <input type="text" th:field="*{valor}" placeholder="valor" class="form-control mb-4 col-4"/>
+
+      <button type="submit" class="btn btn-info col-2">Salvar Dívida</button>
+    </form>
+    <hr/>
+    <a th:href="@{/dividas/listDivida}"> Voltar </a>
+  </div>
+</div>
+</body>
+</html>

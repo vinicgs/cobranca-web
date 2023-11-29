@@ -18,39 +18,39 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class UsuarioController {
-    
-    @Autowired
-    private UsuarioService usuarioService;
-    
-    @GetMapping("/")
-    public String getViewHomePage(Model model){
-        model.addAttribute("listUsuarios", usuarioService.getAllUsuarios());
-        return "home";
-    }
-    
-    @GetMapping("/showNewUsuarioForm")
-    public String showNewUsuarioForm(Model model){
-        Usuario usuario = new Usuario();
-        model.addAttribute("usuario", usuario);
-        return "new_usuario";
-    }
-    
-    @PostMapping("/saveUsuario")
-    public String saveUsuario(@ModelAttribute("usuario") Usuario usuario){
-        usuarioService.save(usuario);
-        return "redirect:/home";
-    }
-    
-    @GetMapping("/showFormForUpdate/{id}")
-    public String showFormForUpdate(@PathVariable(value = "id") long id,Model model){
-        Usuario usuario = usuarioService.getUsuarioById(id);
-        model.addAttribute("usuario", usuario);
-        return "update_usuario";
-    }
-    
-    @GetMapping("/deleteUsuario/{id}")
-    public String deleteUsuario(@PathVariable(value = "id") long id){
-        this.usuarioService.deleteUsuarioById(id);
-        return "redirect:/home";
-    }
+
+  @Autowired
+  private UsuarioService usuarioService;
+
+  @GetMapping("/")
+  public String getViewHomePage(Model model) {
+    model.addAttribute("listUsuarios", usuarioService.getAllUsuarios());
+    return "home";
+  }
+
+  @GetMapping("/showNewUsuarioForm")
+  public String showNewUsuarioForm(Model model) {
+    Usuario usuario = new Usuario();
+    model.addAttribute("usuario", usuario);
+    return "new_usuario";
+  }
+
+  @PostMapping("/saveUsuario")
+  public String saveUsuario(@ModelAttribute("usuario") Usuario usuario) {
+    usuarioService.save(usuario);
+    return "redirect:/home";
+  }
+
+  @GetMapping("/showFormForUpdate/{id}")
+  public String showFormForUpdate(@PathVariable(value = "id") long id, Model model) {
+    Usuario usuario = usuarioService.getUsuarioById(id);
+    model.addAttribute("usuario", usuario);
+    return "update_usuario";
+  }
+
+  @GetMapping("/deleteUsuario/{id}")
+  public String deleteUsuario(@PathVariable(value = "id") long id) {
+    this.usuarioService.deleteUsuarioById(id);
+    return "redirect:/home";
+  }
 }

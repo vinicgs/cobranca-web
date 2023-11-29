@@ -1,99 +1,122 @@
 package com.examplo.exemplo1.model;
 
-import javax.persistence.*;
 import java.util.Date;
 import java.util.Objects;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "divida")
 public class Divida {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false, insertable = false, updatable = false)
-    private Integer id;
 
-    private int codigo;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(name = "id", nullable = false, insertable = false, updatable = false)
+  private Integer id;
 
-    private String credor;
+  private int codigo;
 
-    private Date dataAtualizacao;
+  @ManyToOne
+  @JoinColumn(name = "credor_id", nullable = false)
+  private Cliente credor;
 
-    private String devedor;
+  private Date dataAtualizacao;
 
-    private Double valor;
+  @ManyToOne
+  @JoinColumn(name = "devedor_id", nullable = false)
+  private Cliente devedor;
 
-    public Double getValor() {
-        return valor;
-    }
+  private Double valor;
 
-    public void setValor(Double valor) {
-        this.valor = valor;
-    }
+//    @OneToMany(mappedBy = "divida")
+//    private Pagamento pagamento;
 
-    public Integer getId() {
-        return id;
-    }
+  public Double getValor() {
+    return valor;
+  }
+
+  public void setValor(Double valor) {
+    this.valor = valor;
+  }
+
+  public Integer getId() {
+    return id;
+  }
 
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+  public void setId(Integer id) {
+    this.id = id;
+  }
 
 
-    public Divida() {
-    }
+  public Divida() {
+  }
 
-    public Divida(Integer id, int codigo, String credor, Date dataAtualizacao, String devedor, Double valor) {
-        this.id = id;
-        this.codigo = codigo;
-        this.credor = credor;
-        this.dataAtualizacao = dataAtualizacao;
-        this.devedor = devedor;
-        this.valor = valor;
-    }
+  public Divida(Integer id, int codigo, Cliente credor, Date dataAtualizacao, Cliente devedor,
+      Double valor) {
+    this.id = id;
+    this.codigo = codigo;
+    this.credor = credor;
+    this.dataAtualizacao = dataAtualizacao;
+    this.devedor = devedor;
+    this.valor = valor;
+  }
 
-    public int getCodigo() {
-        return codigo;
-    }
+  public int getCodigo() {
+    return codigo;
+  }
 
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
-    }
+  public void setCodigo(int codigo) {
+    this.codigo = codigo;
+  }
 
-    public String getCredor() {
-        return credor;
-    }
 
-    public void setCredor(String credor) {
-        this.credor = credor;
-    }
+  public Date getDataAtualizacao() {
+    return dataAtualizacao;
+  }
 
-    public Date getDataAtualizacao() {
-        return dataAtualizacao;
-    }
+  public void setDataAtualizacao(Date dataAtualizacao) {
+    this.dataAtualizacao = dataAtualizacao;
+  }
 
-    public void setDataAtualizacao(Date dataAtualizacao) {
-        this.dataAtualizacao = dataAtualizacao;
-    }
+  public Cliente getCredor() {
+    return credor;
+  }
 
-    public String getDevedor() {
-        return devedor;
-    }
+  public void setCredor(Cliente credor) {
+    this.credor = credor;
+  }
 
-    public void setDevedor(String devedor) {
-        this.devedor = devedor;
-    }
+  public Cliente getDevedor() {
+    return devedor;
+  }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Divida)) return false;
-        Divida divida = (Divida) o;
-        return codigo == divida.codigo && Objects.equals(id, divida.id) && Objects.equals(credor, divida.credor) && Objects.equals(dataAtualizacao, divida.dataAtualizacao) && Objects.equals(devedor, divida.devedor);
-    }
+  public void setDevedor(Cliente devedor) {
+    this.devedor = devedor;
+  }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, codigo, credor, dataAtualizacao, devedor);
-    }
+  @Override
+  public boolean equals(Object o) {
+      if (this == o) {
+          return true;
+      }
+      if (!(o instanceof Divida)) {
+          return false;
+      }
+    Divida divida = (Divida) o;
+    return codigo == divida.codigo && Objects.equals(id, divida.id) && Objects.equals(credor,
+        divida.credor) && Objects.equals(dataAtualizacao, divida.dataAtualizacao) && Objects.equals(
+        devedor, divida.devedor);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(id, codigo, credor, dataAtualizacao, devedor);
+  }
 }

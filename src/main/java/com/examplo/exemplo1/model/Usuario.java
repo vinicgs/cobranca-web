@@ -13,60 +13,56 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
- *
  * @author andre
  */
 @Entity
 @Table(name = "usuario")
 public class Usuario {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    @Column(name = "primeiro_nome")
-    private String primeiroNome;
-    @Column(name = "ultimo_nome")
-    private String ultimoNome;
-    @Column(name = "email")
-    private String email;
 
-    @Column(name = "cargo")
-    private String cargo;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private long id;
+  @Column(name = "primeiro_nome")
+  private String primeiroNome;
+  @Column(name = "ultimo_nome")
+  private String ultimoNome;
+  @Column(name = "email")
+  private String email;
 
-    public long getId() {
-        return id;
-    }
+  @Column(name = "cargo")
+  private String cargo;
 
-    public void setId(long id) {
-        this.id = id;
-    }
+  public long getId() {
+    return id;
+  }
 
-    public String getPrimeiroNome() {
-        return primeiroNome;
-    }
+  public void setId(long id) {
+    this.id = id;
+  }
 
-    public void setPrimeiroNome(String primeiroNome) {
-        this.primeiroNome = primeiroNome;
-    }
+  public String getPrimeiroNome() {
+    return primeiroNome;
+  }
 
-    public String getUltimoNome() {
-        return ultimoNome;
-    }
+  public void setPrimeiroNome(String primeiroNome) {
+    this.primeiroNome = primeiroNome;
+  }
 
-    public void setUltimoNome(String ultimoNome) {
-        this.ultimoNome = ultimoNome;
-    }
+  public String getUltimoNome() {
+    return ultimoNome;
+  }
 
-    public String getEmail() {
-        return email;
-    }
+  public void setUltimoNome(String ultimoNome) {
+    this.ultimoNome = ultimoNome;
+  }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-    
-    
-    
-    
-    
-    
+  public String getEmail() {
+    return email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+
 }

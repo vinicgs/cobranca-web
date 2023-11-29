@@ -13,43 +13,41 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
- *
  * @author andre
  */
 @Service
 public class UsuarioServiceImpl implements UsuarioService {
 
-    @Autowired
-    private UsuarioRepository usuarioRepository;
-            
-    @Override
-    public List<Usuario> getAllUsuarios() {
-        return usuarioRepository.findAll();
+  @Autowired
+  private UsuarioRepository usuarioRepository;
+
+  @Override
+  public List<Usuario> getAllUsuarios() {
+    return usuarioRepository.findAll();
+  }
+
+  @Override
+  public void save(Usuario usuario) {
+    this.usuarioRepository.save(usuario);
+  }
+
+  @Override
+  public Usuario getUsuarioById(long id) {
+    Optional<Usuario> optional = usuarioRepository.findById(id);
+    Usuario usuario = null;
+    if (optional.isPresent()) {
+      usuario = optional.get();
+    } else {
+      throw new RuntimeException("Usuario não encontrado");
     }
 
-    @Override
-    public void save(Usuario usuario) {
-        this.usuarioRepository.save(usuario);
-    }
+    return usuario;
+  }
 
-    @Override
-    public Usuario getUsuarioById(long id) {
-        Optional<Usuario> optional = usuarioRepository.findById(id);
-        Usuario usuario = null;
-        if (optional.isPresent()){
-            usuario = optional.get();
-        }
-        else{
-            throw new RuntimeException("Usuario não encontrado");
-        }
-        
-        return usuario;
-    }
+  @Override
+  public void deleteUsuarioById(long id) {
+    this.usuarioRepository.deleteById(id);
+  }
 
-    @Override
-    public void deleteUsuarioById(long id) {
-       this.usuarioRepository.deleteById(id);
-    }
-    
-    
+
 }
